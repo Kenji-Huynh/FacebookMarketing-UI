@@ -1,0 +1,727 @@
+/* Responsive Styles - Cải thiện */
+
+/* For large tablets and small desktops */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .achievement-number {
+    font-size: 32px;
+  }
+}
+
+/* For tablets */
+@media (max-width: 992px) {
+  /* Header adjustments */
+  .header-content {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  /* Course sections */
+  .course-title {
+    font-size: 28px;
+  }
+
+  .course-container {
+    flex-wrap: wrap;
+  }
+
+  .signup-btn {
+    margin-top: 10px;
+  }
+
+  /* Course grid adjustments */
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  /* Achievement section adjustments */
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .achievements {
+    height: auto;
+    min-height: 500px;
+    padding: 60px 0;
+  }
+
+  /* Promo section adjustments */
+  .promo-content {
+    flex-direction: column;
+  }
+
+  .promo-pricing {
+    flex: 0 0 100%;
+    padding-right: 0;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .promo-info {
+    flex: 0 0 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Testimonial section adjustments */
+  .testimonial-header {
+    flex-direction: column;
+  }
+
+  .section-title-container:first-child {
+    margin-bottom: 20px;
+  }
+
+  .testimonial-content {
+    flex-direction: column;
+  }
+
+  .testimonial-left {
+    flex: 0 0 100%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .testimonial-item {
+    flex: 0 0 48%;
+  }
+
+  .testimonial-right {
+    flex: 0 0 100%;
+  }
+
+  .video-container {
+    height: 350px;
+  }
+}
+
+/* For small tablets and large phones */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  .header {
+    height: auto;
+    min-height: 500px;
+    padding: 60px 0;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .logo-slogan {
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  /* Course sections */
+  .course-title {
+    font-size: 24px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .course-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .course-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .signup-btn {
+    font-size: 16px;
+    padding: 12px 24px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .limited-offer {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* Section adjustments */
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .section-description {
+    font-size: 15px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  /* Course grid adjustments */
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  /* Achievement section adjustments */
+  .achievements {
+    padding: 40px 0;
+  }
+
+  .achievement-item {
+    padding: 15px 10px;
+  }
+
+  .achievement-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  .achievement-text {
+    font-size: 13px;
+  }
+
+  /* Promo section adjustments */
+  .promo-section {
+    padding: 40px 0;
+  }
+
+  .discount-percent {
+    font-size: 34px;
+  }
+
+  .countdown-container {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .countdown-number {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .registration-form input,
+  .submit-btn {
+    width: 100%;
+  }
+
+  /* Testimonial section adjustments */
+  .testimonial-section {
+    padding: 40px 0;
+  }
+
+  .testimonial-left {
+    flex-direction: column;
+  }
+
+  .testimonial-item {
+    flex: 0 0 100%;
+    margin-bottom: 30px;
+  }
+
+  .testimonial-text {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .video-container {
+    height: 250px;
+  }
+
+  /* Footer adjustments */
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-left,
+  .footer-right {
+    flex: 0 0 100%;
+    margin-bottom: 30px;
+  }
+
+  .footer {
+    padding: 40px 0 20px;
+    text-align: left;
+  }
+
+  .subscribe-form-container,
+  .subscribe-form,
+  .footer-social {
+    width: 100%;
+  }
+
+  .footer-social {
+    margin-top: 15px;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 576px) {
+  /* Header adjustments */
+  .header {
+    padding: 40px 0;
+  }
+
+  .logo {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .logo img {
+    margin-bottom: 10px;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .title {
+    font-size: 26px;
+    padding: 15px;
+  }
+
+  /* Course grid adjustments */
+  .course-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .course-card {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Achievement section adjustments */
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .achievement-number {
+    font-size: 28px;
+  }
+
+  /* Promo section adjustments */
+  .original-price,
+  .discounted-price {
+    font-size: 24px;
+  }
+
+  .countdown-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .countdown-item {
+    flex: 0 0 45%;
+    margin-bottom: 8px;
+  }
+
+  .countdown-number {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    margin: 0 auto 3px auto;
+  }
+
+  .countdown-label {
+    font-size: 13px;
+  }
+
+  /* Countdown: căn giữa, gap ngắn, luôn hàng ngang, không wrap */
+  .countdown-container {
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    margin-bottom: 14px;
+  }
+  .countdown-item {
+    flex: 0 0 auto;
+    margin-bottom: 0;
+  }
+  .countdown-number {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+    margin: 0 auto 2px auto;
+  }
+  .countdown-label {
+    font-size: 12px;
+  }
+
+  /* Testimonial section adjustments */
+  .testimonial-person {
+    align-items: flex-start;
+  }
+
+  .testimonial-img-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .person-name {
+    font-size: 16px;
+  }
+
+  .testimonial-header .section-title-container:first-child .title-underline {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  /* Footer adjustments */
+  .footer-logo {
+    align-items: flex-start;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+  }
+
+  .subscribe-form input {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .subscribe-form button {
+    width: 100%;
+  }
+
+  /* Header Cards: 4 card ra giữa, dọc */
+  .feature-cards .cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .feature-cards .card {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    min-height: unset;
+    text-align: center;
+    align-items: center;
+    padding: 24px 12px;
+  }
+  .feature-cards .icon-wrapper {
+    align-self: center;
+  }
+
+  /* Section title và description ra giữa */
+  .section-title,
+  .section-description {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Nội dung học: show hết, bỏ button mục lục, căn giữa */
+  .curriculum-header .toggle-btn {
+    display: none !important;
+  }
+  .curriculum-content {
+    max-height: unset !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+  .curriculum-item {
+    margin-bottom: 24px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  }
+  .content-item {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    gap: 16px;
+  }
+  .content-image {
+    margin: 0 0 12px 0;
+    width: 100%;
+    max-width: 220px;
+  }
+  .content-image img {
+    width: 100%;
+    height: auto;
+  }
+  .content-text {
+    padding: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+  .content-title {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  /* Achievements: căn giữa */
+  .achievements {
+    padding: 36px 0;
+    height: auto;
+    min-height: unset;
+  }
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .achievement-item {
+    padding: 18px 8px;
+  }
+
+  /* Promo section: căn giữa, padding hợp lý */
+  .promo-section {
+    padding: 36px 0;
+  }
+  .promo-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 0;
+  }
+  .promo-pricing,
+  .promo-info {
+    padding: 0;
+    max-width: 350px;
+    margin: 0 auto 18px auto;
+    text-align: center;
+  }
+  .promo-title,
+  .promo-description {
+    text-align: center;
+  }
+
+  /* Form đăng ký: căn giữa, padding đều */
+  .registration-form {
+    gap: 8px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .registration-form input,
+  .submit-btn {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  /* Testimonial section: căn giữa, dọc */
+  .testimonial-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .testimonial-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .testimonial-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+  }
+  .testimonial-item {
+    flex: unset;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 18px auto;
+    text-align: center;
+  }
+  .testimonial-person {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .testimonial-img-wrapper {
+    margin: 0 0 10px 0;
+    width: 70px;
+    height: 70px;
+  }
+  .person-info {
+    align-items: center;
+  }
+  .testimonial-text {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .testimonial-right {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .video-container {
+    height: 180px;
+    min-width: unset;
+    margin: 0 auto;
+  }
+
+  /* Footer: căn giữa, dọc */
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+  .footer-left,
+  .footer-right {
+    flex: unset;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .footer-logo {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .footer-logo img {
+    width: 90px;
+  }
+  .footer-address {
+    margin-top: 8px;
+  }
+  .footer-subscribe {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .subscribe-form-container {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .subscribe-form {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .subscribe-form input,
+  .subscribe-form button {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+  }
+  .footer-social {
+    justify-content: center;
+    gap: 18px;
+    margin-top: 8px;
+  }
+  .footer-divider {
+    margin-bottom: 10px;
+  }
+
+  /* Ẩn tiêu đề video ở header testimonial */
+  .testimonial-header .section-title-container:last-child {
+    display: none;
+  }
+  /* Hiện tiêu đề video dưới video */
+  .testimonial-video-title-mobile {
+    display: block !important;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 12px 0 0 0;
+    color: #232845;
+    letter-spacing: 0.5px;
+  }
+
+  /* Header: căn giữa title, button, limited offer */
+  .header-content {
+    align-items: center !important;
+    text-align: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+  }
+  .title {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .limited-offer {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  .signup-btn {
+    display: block;
+    margin: 16px auto 0 auto;
+    text-align: center !important;
+    float: none !important;
+  }
+}
+
+/* For very small phones */
+@media (max-width: 375px) {
+  .title {
+    font-size: 22px;
+  }
+
+  .course-title {
+    font-size: 20px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .discount-percent {
+    font-size: 28px;
+  }
+
+  .cta-text {
+    font-size: 26px;
+  }
+
+  .countdown-number {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .footer-logo-text h3 {
+    font-size: 18px;
+  }
+
+  .address-content {
+    font-size: 13px;
+  }
+}

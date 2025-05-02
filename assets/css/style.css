@@ -1,0 +1,1290 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+}
+
+/* Header Styles */
+.header {
+  background-image: url("../img/header-bg.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 650px;
+  position: relative;
+  color: white;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.3
+  ); /* Dark overlay for better text visibility */
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  height: 48px;
+  margin-right: 10px;
+}
+
+/* Header Text Styles */
+.header-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Header Text Animation */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 16px;
+  display: inline-block;
+  width: 425px;
+  animation: slideInFromLeft 1.2s ease-out forwards;
+  opacity: 0; /* Bắt đầu với opacity 0 */
+}
+
+.course-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.course-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 900;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px 30px;
+  margin-right: 15px;
+  width: auto;
+  animation: slideInFromLeft 1.2s ease-out 0.3s forwards; /* Delay 0.3s */
+  opacity: 0; /* Bắt đầu với opacity 0 */
+}
+
+.signup-btn {
+  font-family: "Crimson Text", serif;
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #ffbf00;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  animation: slideInFromLeft 1.2s ease-out 0.5s forwards; /* Delay 0.5s */
+  opacity: 0; /* Bắt đầu với opacity 0 */
+}
+
+.signup-btn:hover {
+  background-color: #d60000;
+  transition: all 0.5s ease;
+}
+
+.limited-offer {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  display: inline-block;
+  width: fit-content;
+  animation: slideInFromLeft 1.2s ease-out 0.7s forwards; /* Delay 0.7s */
+  opacity: 0; /* Bắt đầu với opacity 0 */
+}
+
+/* Feature Cards Section */
+.feature-cards {
+  position: relative;
+  margin-top: -68px; /* Đè lên phần header 68px */
+}
+
+.cards-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  flex: 1;
+  min-height: 350px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.8s ease-in-out, box-shadow 0.8s ease;
+  cursor: pointer;
+  color: white;
+  padding: 30px 20px;
+  margin: 0;
+}
+
+.card:hover {
+  transform: translateY(-49px); /* Nhô lên trên 49px khi hover */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Icon styles */
+.icon-wrapper {
+  font-size: 50px;
+  margin-bottom: 25px;
+  transition: transform 1s ease;
+  align-self: flex-start; /* Đặt icon ở bên trái */
+}
+
+.card:hover .icon-wrapper {
+  animation: flipIcon 1.25s ease; /* Icon lật ngang 2 vòng */
+}
+
+/* Icon animation */
+@keyframes flipIcon {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(720deg); /* Xoay 720 độ = 2 vòng */
+  }
+}
+
+.card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 20px; /* Giảm kích thước chữ tiêu đề */
+  margin-bottom: 15px;
+  font-weight: 700;
+  transition: all 0.8s ease;
+  white-space: nowrap; /* Ngăn tiêu đề xuống dòng */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Hiển thị dấu "..." nếu text quá dài */
+  max-width: 100%;
+}
+
+.card:hover h3 {
+  font-size: 22px; /* Chữ to hơn khi hover */
+}
+
+.card p {
+  font-size: 13px; /* Giảm kích thước text */
+  line-height: 1.6;
+  transition: all 0.8s ease;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6; /* Giới hạn số dòng hiển thị */
+  -webkit-box-orient: vertical;
+  height: auto;
+  word-wrap: break-word;
+}
+
+.card:hover p {
+  font-size: 14px; /* Text to hơn khi hover */
+  -webkit-line-clamp: 6; /* Giữ nguyên số dòng khi hover */
+}
+
+/* Card color variants */
+.card.green {
+  background-color: #22c55e;
+}
+
+.card.yellow {
+  background-color: #ffc107;
+}
+
+.card.blue {
+  background-color: #3b82f6;
+}
+
+.card.pink {
+  background-color: #ec4899;
+}
+
+/* Hiệu ứng hover thêm */
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scaleX(0);
+  transition: transform 0.8s ease;
+}
+
+.card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Course Section Styles */
+.course-section {
+  padding: 40px 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.section-description {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  line-height: 1.2;
+  color: #555;
+  font-size: 15px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.course-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none; /* Loại bỏ shadow */
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.course-image {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  width: auto;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.course-card:hover .course-image img {
+  transform: scale(1.1);
+}
+
+.course-info {
+  padding: 15px 7px; /* Chỉ padding trên dưới, không có padding trái phải */
+}
+
+.course-info .course-name {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+  transition: color 0.3s ease;
+  line-height: 1.2;
+  white-space: nowrap; /* Hiển thị trên một dòng */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Hiển thị ... nếu quá dài */
+}
+
+.course-card:hover .course-info .course-name {
+  color: #f3c614; /* Màu vàng khi hover */
+}
+
+/* Loại bỏ màu highlight mặc định cho card thứ 4 */
+.course-highlight {
+  color: #333; /* Đặt lại màu giống các card khác */
+}
+
+.course-card:hover .course-highlight {
+  color: #f3c614; /* Chuyển sang màu vàng khi hover */
+}
+
+.instructor {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 18px;
+  color: #e53935;
+}
+
+.rating {
+  color: #f3c614;
+  font-size: 14px;
+}
+
+/* Course Content Section */
+.course-content {
+  padding: 25px 0;
+  background-color: #fff;
+  position: relative;
+}
+
+.content-description {
+  font-size: 15px;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  text-align: center;
+  line-height: 1.2;
+  color: #333;
+}
+
+/* Curriculum Container */
+.curriculum-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 0; /* Đã xóa padding vì không còn thanh progress */
+}
+
+/* Curriculum Item */
+.curriculum-item {
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  background-color: #fff;
+  position: relative;
+}
+
+/* Curriculum Header */
+.curriculum-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+/* Curriculum Icon */
+.curriculum-icon {
+  background-color: #e53935; /* Màu đỏ cho icon */
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+/* Curriculum Content */
+.curriculum-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background-color: #fff;
+}
+
+.curriculum-item.active .curriculum-content {
+  max-height: 1500px; /* Đủ lớn để hiển thị nội dung */
+}
+
+/* Toggle button */
+.toggle-btn {
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+}
+
+.curriculum-item.active .toggle-btn i {
+  transform: rotate(180deg);
+}
+
+.content-item {
+  display: flex;
+  padding: 30px 20px;
+  border-top: 1px solid #eee;
+  align-items: flex-start;
+}
+
+/* Giảm kích thước của ảnh để dành thêm không gian cho text */
+.content-image {
+  flex: 0 0 250px; /* Giảm chiều rộng từ 300px xuống 250px */
+  margin-right: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 3s ease;
+  animation: floatImage 5s ease-in-out infinite; /* Animation nhẹ nhàng liên tục */
+}
+
+@keyframes floatImage {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Tăng không gian cho phần nội dung text */
+.content-text {
+  flex: 1;
+  padding-right: 20px; /* Tăng padding để có thêm không gian */
+  max-width: calc(100% - 280px); /* Đảm bảo có đủ không gian */
+}
+
+.content-title {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin-top: 0;
+  padding: 0;
+  color: #333;
+  white-space: normal; /* Cho phép xuống dòng */
+  overflow: visible; /* Hiển thị toàn bộ nội dung */
+  text-overflow: clip; /* Không cần ellipsis nữa */
+  max-width: 100%;
+  line-height: 1.4;
+}
+
+.content-text p {
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Achievements Section */
+.achievements {
+  position: relative;
+  padding: 80px 0;
+  background-image: url("../img/thanhtuu-bg.png");
+  background-size: cover; /* Đảm bảo hình ảnh phủ toàn bộ phần tử */
+  background-position: center center; /* Căn giữa hình ảnh */
+  background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+  background-attachment: scroll; /* Thay đổi từ fixed sang scroll để hỗ trợ nhiều trình duyệt */
+  color: #fff;
+  height: 460px; /* Đặt chiều cao cố định là 460px theo yêu cầu */
+  display: flex;
+  align-items: center;
+  width: 100%; /* Đảm bảo chiều rộng đầy đủ */
+  overflow: hidden; /* Tránh vấn đề overflow */
+}
+
+.achievements::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Lớp overlay tối */
+  z-index: 1;
+}
+
+/* Đảm bảo nội dung hiển thị đúng */
+.achievements .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.achievements .section-title {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.achievements .section-description {
+  color: #fff;
+  opacity: 0.8;
+  margin-bottom: 40px;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.achievement-item {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.achievement-icon {
+  font-size: 42px;
+  position: relative;
+  z-index: 3;
+  transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.achievement-number {
+  color: #ffd600;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 3;
+}
+
+.achievement-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  z-index: 3;
+}
+
+/* Circle gradient animation */
+.achievement-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #adadad 0%, #000000 100%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+  z-index: 2;
+}
+
+.achievement-item:hover::before {
+  width: 230px;
+  height: 230px;
+  opacity: 1;
+}
+
+.achievement-item:hover .achievement-icon {
+  transform: scale(1.3);
+  color: #fff;
+}
+
+/* Promo Section */
+.promo-section {
+  position: relative;
+  background-image: url("../img/uudai-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 0;
+  color: #fff;
+}
+
+.promo-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+.promo-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Phần giá và ưu đãi */
+.promo-pricing {
+  flex: 0 0 40%;
+  padding-right: 40px;
+}
+
+.original-price {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 600;
+  text-decoration: line-through;
+  color: #ccc;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.discounted-price {
+  font-size: 30px;
+  font-weight: 700;
+  color: #ff3b3b;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.discount-percent {
+  font-family: "Inter", sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 15px 0;
+}
+
+.promo-deadline {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.cta-text {
+  font-family: "Inter", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+/* Phần thông tin khóa học */
+.promo-info {
+  flex: 0 0 60%;
+}
+
+.promo-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+}
+
+.promo-description {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+
+/* Countdown timer */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.countdown-item {
+  text-align: center;
+}
+
+.countdown-number {
+  background-color: #ff3b3b;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.countdown-label {
+  font-size: 14px;
+  color: white;
+}
+
+/* Form đăng ký */
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.registration-form input {
+  padding: 14px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  flex: 1;
+}
+
+.submit-btn {
+  background-color: #3d9be9;
+  color: white;
+  border: none;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+}
+
+.submit-btn:hover {
+  background-color: #e60000;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+  padding: 40px 0;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  overflow: hidden; /* Giữ tiền trong section */
+}
+
+.money-animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Đảm bảo không ảnh hưởng tới tương tác */
+  z-index: 1;
+}
+
+/* Money Animation - Điều chỉnh tốc độ vừa phải và opacity nhẹ nhàng hơn */
+.money-animation-container::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: 10%;
+  width: 40px;
+  height: 40px;
+  background-image: url("../img/money-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.4; /* Giảm opacity từ 0.7 xuống 0.4 */
+  animation: moneyFall 8s linear infinite; /* ĐIỀU CHỈNH: Tăng từ 5s lên 8s để chậm hơn */
+}
+
+.money-animation-container::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 30%;
+  width: 30px;
+  height: 30px;
+  background-image: url("../img/money-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.35; /* Giảm opacity từ 0.6 xuống 0.35 */
+  animation: moneyFall 7s linear infinite 0.5s; /* ĐIỀU CHỈNH: Tăng từ 4s lên 7s */
+}
+
+/* Thêm thêm vài đồng tiền với opacity thấp */
+.money-animation-container::nth-child(1) {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: 60%;
+  width: 35px;
+  height: 35px;
+  background-image: url("../img/money-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* Opacity thấp */
+  animation: moneyFall 7.5s linear infinite 0.2s;
+}
+
+.money-animation-container::nth-child(2) {
+  content: "";
+  position: absolute;
+  top: -90px;
+  left: 80%;
+  width: 28px;
+  height: 28px;
+  background-image: url("../img/money-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.25; /* Opacity thấp */
+  animation: moneyFall 7.2s linear infinite 0.4s;
+}
+
+/* Nếu bạn sử dụng JS để tạo tiền, hãy đảm bảo style này nằm trong file CSS */
+.money {
+  opacity: 0.3 !important; /* Đảm bảo opacity thấp cho tất cả các đồng tiền */
+}
+
+/* Cải thiện keyframes để chuyển động mượt mà và đồng đều hơn */
+@keyframes moneyFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(calc(100vh + 50px)) rotate(180deg);
+  }
+}
+
+/* Nếu bạn sử dụng JS để tạo tiền, hãy đảm bảo style này nằm trong file CSS */
+.money {
+  animation-timing-function: linear !important; /* Đảm bảo tốc độ đều */
+}
+
+/* Tạo các phần tử tiền, số lượng có thể điều chỉnh */
+.money-animation-container::before {
+  content: "";
+  position: absolute;
+  top: -100px; /* Bắt đầu ngoài màn hình */
+  left: 10%;
+  width: 40px;
+  height: 40px;
+  background-image: url("../img/money-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  animation: moneyFall 15s linear infinite; /* TỐC ĐỘ TẠI ĐÂY - Tăng/giảm 15s để thay đổi tốc độ */
+}
+
+.money-animation-container::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 30%;
+  width: 30px;
+  height: 30px;
+  background-image: url("../img/money-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  animation: moneyFall 12s linear infinite 2s; /* TỐC ĐỘ TẠI ĐÂY - Số 12s là tốc độ */
+}
+
+/* Tạo nhiều đồng tiền hơn bằng pseudo-elements */
+.testimonial-section .container {
+  position: relative;
+  z-index: 2; /* Đảm bảo nội dung hiển thị trên tiền */
+}
+
+.testimonial-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-title-container {
+  position: relative;
+}
+
+.title-underline {
+  width: 60px;
+  height: 3px;
+  background-color: #f3c614;
+  margin-top: 10px;
+}
+
+.testimonial-content {
+  display: flex;
+  gap: 30px;
+}
+
+.testimonial-left {
+  flex: 0 0 60%;
+  display: flex; /* Thêm vào để hiển thị các item theo hàng ngang */
+  flex-direction: row; /* Hiển thị theo chiều ngang */
+  justify-content: space-between; /* Phân bố không gian giữa các item */
+  align-items: flex-end;
+  gap: 20px; /* Khoảng cách giữa các item */
+}
+
+.testimonial-right {
+  flex: 0 0 40%;
+}
+
+/* Testimonial Items */
+.testimonial-item {
+  margin-bottom: 40px;
+  flex: 0 0 48%; /* Chiều rộng của mỗi item, để có khoảng trống giữa chúng */
+}
+
+.testimonial-person {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative; /* Đảm bảo vị trí relative để định vị line */
+}
+
+.testimonial-img-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden; /* Giữ nguyên để cắt ảnh thành hình tròn */
+  margin-right: 15px;
+  transition: all 0.5s ease;
+}
+
+/* Xóa đường line vàng dưới tấm ảnh */
+.yellow-line {
+  display: none; /* Ẩn đường line vàng dưới ảnh */
+}
+
+/* Điều chỉnh line vàng dưới tên */
+.person-name {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #333;
+  position: relative; /* Giữ position relative */
+}
+
+.person-name::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Đặt line cách xa tên một chút */
+  left: 0;
+  width: 0; /* Ban đầu width = 0 */
+  height: 2px;
+  background-color: #f3c614;
+  transition: width 0.5s ease;
+}
+
+/* Hiệu ứng hover cho line dưới tên */
+.testimonial-item:hover .person-name::after {
+  width: 40px; /* Khi hover, line sẽ mở rộng ra 40px */
+}
+
+/* Giữ nguyên hiệu ứng zoom ảnh khi hover */
+.testimonial-img-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.testimonial-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.person-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.person-name {
+  font-family: "Inter", serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.person-job,
+.person-company {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.person-company {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.testimonial-text {
+  font-size: 15px;
+  line-height: 1.2;
+  color: #555;
+  max-width: 100%; /* Thay đổi từ 95% sang 100% */
+}
+
+/* Video Container */
+.video-container {
+  width: 100%;
+  height: 300px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../img/video-thumbnail.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.play-button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-button i {
+  font-size: 30px;
+  color: #e53935;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+  background-color: #fff;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #232845;
+  color: #fff;
+  padding: 50px 0 30px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+/* Footer Left Side */
+.footer-left {
+  flex: 0 0 45%;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.footer-logo img {
+  width: 150px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.footer-logo-text h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.footer-logo-text p {
+  font-size: 12px;
+  margin: 5px 0 0;
+  opacity: 0.8;
+}
+
+.footer-address {
+  margin-top: 20px;
+}
+
+.address-title {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 5px;
+}
+
+.address-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Footer Right Side */
+.footer-right {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-subscribe {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-subscribe p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.subscribe-form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  margin-left: auto;
+}
+
+.subscribe-form {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.subscribe-form input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  font-size: 14px;
+  border-radius: 0;
+}
+
+.subscribe-form button {
+  background-color: #3c4578;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+  background-color: #2c4b8e;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-start; /* Căn phải để phù hợp với layout */
+  margin-top: 0; /* Điều chỉnh margin top */
+}
+
+.social-link {
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-link:hover {
+  color: #f3c614;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Đảm bảo responsive vẫn hoạt động tốt */
+@media (max-width: 768px) {
+  .subscribe-form-container {
+    margin: 0 auto;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
