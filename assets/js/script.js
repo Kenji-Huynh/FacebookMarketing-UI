@@ -320,10 +320,105 @@ function initScrollTelling() {
   }, 200);
 }
 
+// Hiệu ứng chuyển động mượt mà cho phần Promo Pricing - Đã cải thiện
+function initPromoAnimations() {
+  // Đảm bảo phần tử tồn tại
+  const promoElements = document.querySelectorAll(".promo-pricing > div");
+  if (!promoElements.length) return;
+
+  // Thêm hiệu ứng tương tác cho CTA text
+  const ctaText = document.querySelector(".cta-text");
+  if (ctaText) {
+    ctaText.addEventListener("mouseenter", () => {
+      ctaText.style.animationPlayState = "paused";
+      ctaText.style.transform = "scale(1.1)";
+    });
+
+    ctaText.addEventListener("mouseleave", () => {
+      ctaText.style.animationPlayState = "running";
+      ctaText.style.transform = "";
+    });
+  }
+
+  // Thêm hiệu ứng tương tác cho discount-percent
+  const discountPercent = document.querySelector(".discount-percent");
+  if (discountPercent) {
+    discountPercent.addEventListener("mouseenter", () => {
+      discountPercent.style.animationPlayState = "paused";
+    });
+
+    discountPercent.addEventListener("mouseleave", () => {
+      discountPercent.style.animationPlayState = "running";
+    });
+  }
+
+  // Thêm hiệu ứng click cho CTA
+  if (ctaText) {
+    ctaText.addEventListener("click", () => {
+      // Tạo hiệu ứng pulse mạnh khi click
+      ctaText.classList.add("cta-clicked");
+      setTimeout(() => {
+        ctaText.classList.remove("cta-clicked");
+      }, 500);
+    });
+  }
+}
+
+// Parallax mousemove effect for header
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector(".header");
+  if (!header) return;
+
+  const parallaxElements = document.querySelectorAll(".parallax-element");
+  if (!parallaxElements.length) return;
+
+  const intensityConfig = {
+    title: 20,
+    "course-title": 30,
+    "signup-btn": 40,
+    "limited-offer": 15,
+  };
+
+  header.addEventListener("mousemove", function (e) {
+    const rect = header.getBoundingClientRect();
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const relativeX = (e.clientX - rect.left - centerX) / centerX;
+    const relativeY = (e.clientY - rect.top - centerY) / centerY;
+
+    parallaxElements.forEach(function (element) {
+      let intensity = 25;
+      for (const className in intensityConfig) {
+        if (element.classList.contains(className)) {
+          intensity = intensityConfig[className];
+          break;
+        }
+      }
+      const moveX = -relativeX * intensity;
+      const moveY = -relativeY * intensity;
+      element.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+  });
+
+  header.addEventListener("mouseleave", function () {
+    parallaxElements.forEach(function (element) {
+      element.style.transform = "translate(0, 0)";
+      element.style.transition = "transform 0.5s cubic-bezier(.4,2,.6,1)";
+      setTimeout(function () {
+        element.style.transition = "transform 0.15s cubic-bezier(.4,2,.6,1)";
+      }, 500);
+    });
+  });
+});
+
 // Thêm vào DOM ready event
 document.addEventListener("DOMContentLoaded", function () {
   // Các hàm khởi tạo khác...
 
   // Khởi tạo Scroll Telling
   initScrollTelling();
+
+  // Khởi tạo Promo Animations
+  initPromoAnimations();
 });
