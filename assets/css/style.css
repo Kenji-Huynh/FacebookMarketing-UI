@@ -502,7 +502,7 @@ body {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-7px);
   }
   100% {
     transform: translateY(0);
@@ -534,6 +534,201 @@ body {
 .content-text p {
   line-height: 1.5;
   color: #555;
+}
+
+/* Scroll Telling Styles - Fixed Version */
+.scroll-container {
+  display: flex;
+  margin: 50px 0;
+  gap: 70px; /* Tăng khoảng cách giữa sidebar và nội dung */
+  position: relative;
+}
+
+/* Progress Bar Styles */
+.progress-sidebar {
+  width: 200px;
+  position: sticky;
+  top: 220px;
+  height: 300px;
+  align-self: flex-start;
+  margin-bottom: 40px;
+}
+
+.progress-track {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+}
+
+.progress-fill {
+  position: absolute;
+  width: 100%;
+  background-color: #e53935;
+  top: 0;
+  left: 0;
+  border-radius: 2px;
+  height: 0;
+  transition: height 0.3s ease;
+}
+
+/* Progress Points */
+.progress-points {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+.progress-point {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.progress-point:nth-child(1) {
+  top: 0;
+}
+
+.progress-point:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.progress-point:nth-child(3) {
+  bottom: 0;
+}
+
+.point-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.progress-point.active .point-dot,
+.progress-point.passed .point-dot {
+  background-color: #e53935;
+  border-color: #e53935;
+  transform: scale(1.2);
+}
+
+.point-label {
+  font-weight: 600;
+  color: #333;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  width: max-content;
+  max-width: 120px;
+  padding: 5px 10px;
+}
+
+.progress-point:hover .point-label,
+.progress-point.active .point-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Content Sections - Cải tiến */
+.scroll-sections {
+  flex: 1;
+  position: relative;
+}
+
+.scroll-section-item {
+  margin-bottom: 120px; /* Khoảng cách giữa các section */
+  opacity: 0.3; /* Mờ nhạt khi không active */
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-section-item:last-child {
+  margin-bottom: 0;
+}
+
+.scroll-section-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-section-item.active .section-inner {
+  border-left: 4px solid #e53935;
+}
+
+.section-inner {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: border-left 0.3s ease;
+}
+
+.section-header {
+  padding: 15px 25px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.section-header .section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  text-align: left;
+}
+
+.section-content {
+  display: flex;
+  padding: 0;
+}
+
+.section-image {
+  flex: 0 0 40%;
+  min-height: 250px;
+  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.section-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 3s ease;
+  padding: 20px;
+}
+
+.scroll-section-item.active .section-image img {
+  animation: floatImage 5s ease-in-out infinite;
+}
+
+.section-text {
+  flex: 1;
+  padding: 25px;
+}
+
+.section-text p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
 }
 
 /* Achievements Section */
@@ -632,7 +827,11 @@ body {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: radial-gradient(circle, #adadad 0%, #000000 100%);
+  background: radial-gradient(
+    circle,
+    rgba(173, 173, 173, 0.5) 20%,
+    rgba(0, 0, 0, 0.8) 80%
+  );
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
@@ -849,7 +1048,7 @@ body {
   z-index: 1;
 }
 
-/* Money Animation - Điều chỉnh tốc độ vừa phải và opacity nhẹ nhàng hơn */
+/* Money Animation - Điều chỉnh tốc độ chậm hơn và mượt mà hơn */
 .money-animation-container::before {
   content: "";
   position: absolute;
@@ -860,8 +1059,8 @@ body {
   background-image: url("../img/money-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.4; /* Giảm opacity từ 0.7 xuống 0.4 */
-  animation: moneyFall 8s linear infinite; /* ĐIỀU CHỈNH: Tăng từ 5s lên 8s để chậm hơn */
+  opacity: 0.4;
+  animation: moneyFall 20s linear infinite; /* Tăng từ 8s lên 20s để chậm hơn */
 }
 
 .money-animation-container::after {
@@ -874,11 +1073,11 @@ body {
   background-image: url("../img/money-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.35; /* Giảm opacity từ 0.6 xuống 0.35 */
-  animation: moneyFall 7s linear infinite 0.5s; /* ĐIỀU CHỈNH: Tăng từ 4s lên 7s */
+  opacity: 0.35;
+  animation: moneyFall 18s linear infinite 3s; /* Tăng từ 7s lên 18s */
 }
 
-/* Thêm thêm vài đồng tiền với opacity thấp */
+/* Thêm thêm vài đồng tiền với opacity thấp và thời gian rơi khác nhau */
 .money-animation-container::nth-child(1) {
   content: "";
   position: absolute;
@@ -889,8 +1088,8 @@ body {
   background-image: url("../img/money-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.3; /* Opacity thấp */
-  animation: moneyFall 7.5s linear infinite 0.2s;
+  opacity: 0.3;
+  animation: moneyFall 22s linear infinite 1.5s; /* Tăng từ 7.5s lên 22s */
 }
 
 .money-animation-container::nth-child(2) {
@@ -903,13 +1102,37 @@ body {
   background-image: url("../img/money-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.25; /* Opacity thấp */
-  animation: moneyFall 7.2s linear infinite 0.4s;
+  opacity: 0.25;
+  animation: moneyFall 25s linear infinite 4.2s; /* Tăng từ 7.2s lên 25s */
 }
 
-/* Nếu bạn sử dụng JS để tạo tiền, hãy đảm bảo style này nằm trong file CSS */
-.money {
-  opacity: 0.3 !important; /* Đảm bảo opacity thấp cho tất cả các đồng tiền */
+/* Tạo thêm hai đồng tiền mới với thời gian rơi chậm hơn */
+.money-animation-container::nth-child(3) {
+  content: "";
+  position: absolute;
+  top: -110px;
+  left: 45%;
+  width: 32px;
+  height: 32px;
+  background-image: url("../img/money-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  animation: moneyFall 23s linear infinite 2.7s;
+}
+
+.money-animation-container::nth-child(4) {
+  content: "";
+  position: absolute;
+  top: -70px;
+  left: 75%;
+  width: 25px;
+  height: 25px;
+  background-image: url("../img/money-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  animation: moneyFall 21s linear infinite 5.5s;
 }
 
 /* Cải thiện keyframes để chuyển động mượt mà và đồng đều hơn */
@@ -1276,15 +1499,4 @@ body {
   height: 1px;
   background-color: rgba(255, 255, 255, 0.2);
   margin-bottom: 20px;
-}
-
-/* Đảm bảo responsive vẫn hoạt động tốt */
-@media (max-width: 768px) {
-  .subscribe-form-container {
-    margin: 0 auto;
-  }
-
-  .footer-social {
-    justify-content: center;
-  }
 }
