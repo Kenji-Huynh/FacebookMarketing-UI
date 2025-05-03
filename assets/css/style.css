@@ -894,7 +894,7 @@ body {
 .promo-pricing {
   flex: 0 0 40%;
   padding-right: 40px;
-  animation: float 6s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite; /* Giảm thời gian từ 6s xuống 3s */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -906,7 +906,9 @@ body {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(
+      -15px
+    ); /* Tăng biên độ lên xuống từ -10px lên -15px */
   }
   100% {
     transform: translateY(0);
@@ -1005,7 +1007,7 @@ body {
   color: white;
   text-transform: uppercase;
   margin-top: 20px;
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse 1.5s ease-in-out infinite; /* Nhịp độ nhanh hơn */
   text-shadow: 0 2px 5px rgba(255, 0, 0, 0.5);
   position: relative;
   display: inline-block;
@@ -1017,7 +1019,7 @@ body {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.08);
+    transform: scale(1.05);
   }
   100% {
     transform: scale(1);
