@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Khóa Học Marketing</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css?v=2" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link
       rel="stylesheet"
@@ -24,6 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
       rel="stylesheet"
     />
+    <style></style>
   </head>
   <body>
     <!-- Header Section -->
@@ -34,12 +35,12 @@
         </div>
 
         <div class="header-text">
-          <h1 class="title">FACEBOOK STEP BY STEP</h1>
+          <h1 class="title parallax-element">FACEBOOK STEP BY STEP</h1>
           <div class="course-container">
-            <h2 class="course-title">HỌC MARKETING PRO</h2>
-            <a href="#" class="signup-btn">ĐĂNG KÝ HỌC</a>
+            <h2 class="course-title parallax-element">HỌC MARKETING PRO</h2>
+            <a href="#" class="signup-btn parallax-element">ĐĂNG KÝ HỌC</a>
           </div>
-          <p class="limited-offer">
+          <p class="limited-offer parallax-element">
             * CHỈ GIỮ CHỖ CHO 30 HỌC VIÊN ĐĂNG KÝ ĐẦU TIÊN
           </p>
         </div>
@@ -579,5 +580,93 @@
       </div>
     </footer>
     <script src="assets/js/script.js"></script>
+    <script>
+      // Script độc lập cho parallax header - Phiên bản tối ưu
+      (function () {
+        // Chạy sau khi trang đã tải hoàn toàn
+        window.addEventListener("load", function () {
+          console.log("Script parallax đang chạy...");
+
+          const header = document.querySelector(".header");
+          if (!header) {
+            console.error("Không tìm thấy phần tử .header");
+            return;
+          }
+
+          // Xác định các phần tử parallax
+          const parallaxElements =
+            document.querySelectorAll(".parallax-element");
+          if (!parallaxElements.length) {
+            console.error("Không tìm thấy phần tử .parallax-element nào");
+            return;
+          }
+
+          console.log("Tìm thấy", parallaxElements.length, "phần tử parallax");
+
+          // Cường độ di chuyển cho từng loại phần tử
+          const intensityMap = {
+            title: 20,
+            "course-title": 30,
+            "signup-btn": 40,
+            "limited-offer": 15,
+          };
+
+          // Xử lý mouse move
+          header.addEventListener("mousemove", function (e) {
+            // Lấy kích thước header
+            const rect = header.getBoundingClientRect();
+
+            // Tính toán vị trí chuột tương đối với trung tâm header
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const relativeX = (e.clientX - rect.left - centerX) / centerX;
+            const relativeY = (e.clientY - rect.top - centerY) / centerY;
+
+            // Áp dụng hiệu ứng cho từng phần tử
+            parallaxElements.forEach(function (element) {
+              // Xác định cường độ di chuyển
+              let intensity = 25; // Giá trị mặc định
+
+              // Kiểm tra class của phần tử
+              Object.keys(intensityMap).forEach(function (className) {
+                if (element.classList.contains(className)) {
+                  intensity = intensityMap[className];
+                }
+              });
+
+              // Tính toán di chuyển (ngược hướng với chuột)
+              const moveX = -relativeX * intensity;
+              const moveY = -relativeY * intensity;
+
+              // Áp dụng transform trực tiếp (force)
+              element.style.setProperty(
+                "transform",
+                `translate(${moveX}px, ${moveY}px)`,
+                "important"
+              );
+            });
+          });
+
+          // Trở về vị trí ban đầu khi chuột rời khỏi header
+          header.addEventListener("mouseleave", function () {
+            parallaxElements.forEach(function (element) {
+              element.style.setProperty(
+                "transform",
+                "translate(0, 0)",
+                "important"
+              );
+              element.style.transition = "transform 0.5s ease-out";
+
+              // Reset transition sau khi hoàn thành
+              setTimeout(function () {
+                element.style.transition = "transform 0.1s ease-out";
+              }, 500);
+            });
+          });
+
+          console.log("Đã thiết lập xong event listeners cho parallax");
+        });
+      })();
+    </script>
   </body>
 </html>
